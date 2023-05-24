@@ -1,0 +1,19 @@
+@import "../../assets/variables.scss";
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px;
+  .tabs-container {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+  }
+}
+
+.border-bottom {
+  border-bottom: 1px solid $white;
+  width: 100%;
+  display: block;
+}
