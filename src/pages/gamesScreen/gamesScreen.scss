@@ -1,0 +1,15 @@
+@import "../../assets/variables.scss";
+
+.games-container {
+  margin: 0 20%;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    color: $red;
+  }
+  p {
+    color: $white;
+  }
+}
