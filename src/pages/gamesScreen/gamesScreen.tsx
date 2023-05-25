@@ -9,7 +9,7 @@ export const GamesScreen = () => {
   const [gamesFound, setGamesFound] = useState([]);
 
   const handleSearchQuery = (e: any) => {
-    const { name, value } = e.target;
+    const { value } = e.target;
     setSearchQuery(value);
   };
 
