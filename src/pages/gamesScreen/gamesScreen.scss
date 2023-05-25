@@ -1,7 +1,7 @@
 @import "../../assets/variables.scss";
 
 .games-container {
-  margin: 0 20%;
+  margin: 0 5%;
   height: 75vh;
   display: flex;
   flex-direction: column;
@@ -11,5 +11,27 @@
   }
   p {
     color: $white;
+  }
+  .games-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 36px;
+    .game-container {
+      text-align: center;
+      width: 240px;
+      margin: 0 8px;
+      cursor: pointer;
+      .cover-art {
+        height: 240px;
+        width: 180px;
+      }
+      p {
+        color: $white;
+        &:hover {
+          color: $red;
+        }
+      }
+    }
   }
 }

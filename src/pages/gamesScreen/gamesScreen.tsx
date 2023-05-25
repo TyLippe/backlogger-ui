@@ -28,9 +28,22 @@ export const GamesScreen = () => {
         name={"seach"}
         value={searchQuery}
       />
-      {gamesFound.map((game) => {
-        return <p>{game.name}</p>;
-      })}
+      <div className="games-list">
+        {gamesFound.map((game) => {
+          return (
+            <div className="game-container">
+              <img
+                className="cover-art"
+                src={
+                  game.coverURL || require("../../assets/placeholder_cover.jpg")
+                }
+                alt={`${game.name} Cover Art`}
+              />
+              <p>{game.name}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

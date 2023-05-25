@@ -13,6 +13,6 @@ export const getGames = async (gameTitle: string) => {
       },
     })
     .then((res) => {
-      return res.data;
+      return Object.values(res.data);
     });
 };
