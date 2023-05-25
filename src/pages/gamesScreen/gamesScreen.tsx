@@ -6,6 +6,7 @@ import { getGames } from "../../axios/getGames";
 
 export const GamesScreen = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [gamesFound, setGamesFound] = useState([]);
 
   const handleSearchQuery = (e: any) => {
     const { name, value } = e.target;
@@ -14,7 +15,8 @@ export const GamesScreen = () => {
 
   const handleSearchSubmit = async (e: any) => {
     e.preventDefault();
-    await getGames(searchQuery);
+    const data = await getGames(searchQuery);
+    setGamesFound(data);
   };
 
   return (
@@ -26,7 +28,9 @@ export const GamesScreen = () => {
         name={"seach"}
         value={searchQuery}
       />
-      <p>{searchQuery}</p>
+      {gamesFound.map((game) => {
+        return <p>{game.name}</p>;
+      })}
     </div>
   );
 };
