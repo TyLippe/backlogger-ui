@@ -4,14 +4,14 @@ export interface User {
   name: string;
   email: string;
   picture: any;
-  loggedIn: boolean;
+  isLoggedIn: boolean;
 }
 
 const initialState = {
   name: "",
   email: "",
   picture: "",
-  loggedIn: false,
+  isLoggedIn: false,
 };
 
 export const userSlice = createSlice({
@@ -22,7 +22,7 @@ export const userSlice = createSlice({
       state.name = action.payload.name;
       state.email = action.payload.email;
       state.picture = action.payload.picture;
-      state.loggedIn = true;
+      state.isLoggedIn = true;
     },
     logoutUser: () => initialState,
   },
