@@ -22,7 +22,6 @@ export const GamesScreen = () => {
 
   return (
     <div className="games-container">
-      <h1>GAMING</h1>
       <SearchInput
         handleChange={handleSearchQuery}
         handleSubmit={handleSearchSubmit}
@@ -31,11 +30,7 @@ export const GamesScreen = () => {
       />
       <div className="games-list">
         {gamesFound.map((game) => {
-          return (
-            <div className="game-container">
-              <GameCard game={game} />
-            </div>
-          );
+          return <GameCard game={game} />;
         })}
       </div>
     </div>

@@ -7,8 +7,10 @@ export const GameCard = ({ game }: { game: any }) => {
   const { name, coverURL, platforms } = game;
   return (
     <div className="game-card-container">
-      <CoverArt name={name} coverURL={coverURL} />
-      <NameText name={name} />
+      <div className="art-and-name-container">
+        <CoverArt name={name} coverURL={coverURL} />
+        <NameText name={name} />
+      </div>
       <div className="footer">
         <HelperText text={platforms?.join(" || ") || ""} />
       </div>

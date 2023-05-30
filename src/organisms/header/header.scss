@@ -4,7 +4,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 10px;
   .tabs-container {
     display: flex;
     justify-content: flex-end;
@@ -16,4 +15,12 @@
   border-bottom: 1px solid $white;
   width: 100%;
   display: block;
+}
+
+// Mobile
+@media screen and (max-width: $screen-md-min) {
+}
+
+// Desktop
+@media screen and (min-width: $screen-md-min) {
 }

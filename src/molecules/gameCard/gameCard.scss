@@ -1,10 +1,14 @@
 @import "../../assets/variables.scss";
 
 .game-card-container {
+  cursor: default;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  cursor: default;
+  text-align: center;
+  width: 240px;
+  height: auto;
+  margin: 12px 2px;
 }

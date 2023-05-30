@@ -2,10 +2,25 @@
 
 .tab {
   color: $white;
-  font-size: 1.5em;
-  cursor: pointer;
-  margin: 0 10px;
-  &:hover {
-    color: $red;
+}
+
+// Mobile
+@media screen and (max-width: $screen-md-min) {
+  .tab {
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 0 8px;
+  }
+}
+
+// Desktop
+@media screen and (min-width: $screen-md-min) {
+  .tab {
+    font-size: 1.5em;
+    cursor: pointer;
+    margin: 0 10px;
+    &:hover {
+      color: $red;
+    }
   }
 }
