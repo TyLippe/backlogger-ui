@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SearchInput } from "../../atoms";
 
-import "./gamesScreen.scss";
+import "./games.scss";
 import { getGames } from "../../axios/getGames";
 
 export const GamesScreen = () => {

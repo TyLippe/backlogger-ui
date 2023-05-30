@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./homeScreen.scss";
+import "./home.scss";
 
 export const HomeScreen = () => {
   return (
