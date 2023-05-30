@@ -3,6 +3,7 @@ import { SearchInput } from "../../atoms";
 
 import "./games.scss";
 import { getGames } from "../../axios/getGames";
+import { GameCard } from "../../molecules/gameCard/gameCard";
 
 export const GamesScreen = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -32,14 +33,7 @@ export const GamesScreen = () => {
         {gamesFound.map((game) => {
           return (
             <div className="game-container">
-              <img
-                className="cover-art"
-                src={
-                  game.coverURL || require("../../assets/placeholder_cover.jpg")
-                }
-                alt={`${game.name} Cover Art`}
-              />
-              <p>{game.name}</p>
+              <GameCard game={game} />
             </div>
           );
         })}

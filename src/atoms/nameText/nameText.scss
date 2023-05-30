@@ -1,0 +1,10 @@
+@import "../../assets/variables.scss";
+
+.name-text {
+  color: $white;
+  font-size: 1.25em;
+  &:hover {
+    color: $red;
+    cursor: pointer;
+  }
+}

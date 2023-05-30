@@ -6,12 +6,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  h1 {
-    color: $red;
-  }
-  p {
-    color: $white;
-  }
   .games-list {
     display: flex;
     flex-wrap: wrap;
@@ -21,17 +15,6 @@
       text-align: center;
       width: 240px;
       margin: 0 8px;
-      cursor: pointer;
-      .cover-art {
-        height: 240px;
-        width: 180px;
-      }
-      p {
-        color: $white;
-        &:hover {
-          color: $red;
-        }
-      }
     }
   }
 }
