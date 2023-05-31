@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { SearchInput } from "../../atoms";
 
 import "./games.scss";
-import { getGames } from "../../axios/getGames";
+import { getGames } from "../../axios/games";
 import { GameCard } from "../../molecules/gameCard/gameCard";
 
 export const GamesScreen = () => {

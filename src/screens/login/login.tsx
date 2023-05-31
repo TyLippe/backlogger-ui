@@ -9,6 +9,7 @@ import { redirectTo } from "../../utils/utils";
 import { RootState } from "../../app/store";
 
 import "./login.scss";
+import { getUser } from "../../axios/user";
 
 export const LoginScreen = () => {
   const navigate = useNavigate();
@@ -34,8 +35,9 @@ export const LoginScreen = () => {
             },
           }
         )
-        .then((res) => {
-          dispatch(setUser(res.data));
+        .then(async (res) => {
+          const userData = await getUser(res.data);
+          dispatch(setUser(userData));
           redirectTo({ navigate, path: "/" });
         })
         .catch((err) => console.log(err));
