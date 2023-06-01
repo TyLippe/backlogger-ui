@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { RootState } from "../../store";
 import { logoutUser, setUser } from "../../redux/user/userSlice";
+import { HeaderText, TextInput } from "../../atoms";
+import { upsertUser } from "../../axios/user";
 
 import "./user.scss";
-import { TextInput } from "../../atoms";
-import { upsertUser } from "../../axios/user";
 
 export const UserScreen = () => {
   const dispatch = useDispatch();
@@ -15,6 +15,7 @@ export const UserScreen = () => {
   const lists = useSelector((state: RootState) => state.lists);
 
   const [username, setUsername] = useState("");
+  const [changeUsername, setChangeUsername] = useState(false);
 
   const logOut = () => {
     googleLogout();
@@ -30,25 +31,50 @@ export const UserScreen = () => {
     e.preventDefault();
     const res = await upsertUser({ ...user, username });
     dispatch(setUser(res));
+    setChangeUsername(false);
   };
 
   return (
     <div className="user-container">
-      <h1>User</h1> <button onClick={logOut}>Log out</button>
-      <p>Name: {user.name}</p>
-      <p>Email: {user.email}</p>
-      <p>Username: {user.username}</p>
-      <TextInput
-        handleChange={handleUsernameChange}
-        handleSubmit={handleSubmit}
-        name={"seach"}
-        value={username}
-        placeholder="username"
-        submitText="Submit"
-      />
-      {lists.map((list) => {
-        return <p>{list.name}</p>;
-      })}
+      <div className="user-header">
+        <HeaderText text={user.username || user.name} />
+        <button onClick={logOut}>Log out</button>
+      </div>
+
+      {!changeUsername && (
+        <div className="username-change-input">
+          <button onClick={() => setChangeUsername(!changeUsername)}>
+            Change Username?
+          </button>
+        </div>
+      )}
+
+      {changeUsername && (
+        <div className="username-change-input">
+          <TextInput
+            handleChange={handleUsernameChange}
+            handleSubmit={handleSubmit}
+            name={"seach"}
+            value={username}
+            placeholder="New Username"
+            submitText="Submit"
+          />
+          <button onClick={() => setChangeUsername(false)}>Cancel</button>
+        </div>
+      )}
+
+      <div className="lists-container">
+        {Object.values(lists).map((list) => {
+          return (
+            <div className="list-box">
+              <h1>{`${list.name}`}</h1>
+              {Object.values(list.games).map((game) => {
+                return <li>{game.name}</li>;
+              })}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

@@ -13,3 +13,15 @@ export const getGames = async (gameTitle: string) => {
       return Object.values(res.data);
     });
 };
+
+export const getGameNamesById = async (ids: number[]) => {
+  return await axios
+    .get(`${backloggerAPI}/games/namesByIds`, {
+      params: {
+        ids,
+      },
+    })
+    .then((res) => {
+      console.log(res.data);
+    });
+};

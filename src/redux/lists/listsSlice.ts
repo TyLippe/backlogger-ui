@@ -1,10 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export interface Game {
+  [id: string]: GameDTO;
+}
+
+export interface GameDTO {
+  name: string | null;
+  id: number;
+}
+
 export interface List {
+  [id: string]: ListDTO;
+}
+
+export interface ListDTO {
   name: string;
   userId: string;
   id: string;
-  games: number[];
+  games: Game;
 }
 
 const initialState: List[] = [];

@@ -1,21 +1,19 @@
-import { List } from "../redux/lists/listsSlice";
-
 export const createStandardLists = (userId: string) => {
   return [
     {
       name: "Backlog",
-      games: [],
+      games: [] as number[],
       userId: userId,
     },
     {
       name: "Playing",
-      games: [],
+      games: [] as number[],
       userId: userId,
     },
     {
       name: "Beaten",
-      games: [],
+      games: [] as number[],
       userId: userId,
     },
-  ] as List[];
+  ];
 };

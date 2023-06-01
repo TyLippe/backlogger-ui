@@ -1,16 +1,52 @@
 @import "../../assets/variables.scss";
 
 .user-container {
-  margin: 0 20%;
-  height: 75vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  h1 {
-    color: $primary;
+  margin: 0 1%;
+  button {
+    height: 36px;
+    width: auto;
+    border-radius: 8px;
+    border: 1px solid $lightgrey;
+    padding: 4px;
+    background-color: $white;
+    margin-left: 4px;
+    &:hover {
+      background-color: $primary;
+      color: $white;
+      cursor: pointer;
+    }
   }
-  p {
-    color: $white;
+  .user-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .username-change-input {
+    display: flex;
+  }
+  .lists-container {
+    cursor: default;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    .list-box {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid $lightgrey;
+      background-color: $primary;
+      opacity: 0.5;
+      width: 240px;
+      height: 240px;
+      border-radius: 8px;
+      margin: 0 20px 20px 0;
+      h1 {
+        margin: 0;
+        text-align: center;
+      }
+      li {
+        margin-top: 4px;
+        margin-left: 12px;
+      }
+    }
   }
 }
