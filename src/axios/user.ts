@@ -19,11 +19,10 @@ export const getUser = async (userData: any) => {
 
 export const upsertUser = async (userData: any) => {
   return await axios
-    .post(`${backloggerAPI}/users`, {
+    .put(`${backloggerAPI}/users`, {
       name: userData.name,
       email: userData.email,
       username: userData.username,
-      listIds: [],
     })
     .then(async (res) => {
       if (res.data) {
