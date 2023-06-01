@@ -5,11 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { setUser } from "../../redux/user/userSlice";
+import { setInitialLists } from "../../redux/lists/listsSlice";
 import { redirectTo } from "../../utils/utils";
-import { RootState } from "../../app/store";
+import { RootState } from "../../store";
 
 import "./login.scss";
 import { getUser } from "../../axios/user";
+import { getUserLists } from "../../axios/lists";
 
 export const LoginScreen = () => {
   const navigate = useNavigate();
@@ -38,6 +40,8 @@ export const LoginScreen = () => {
         .then(async (res) => {
           const userData = await getUser(res.data);
           dispatch(setUser(userData));
+          const listData = await getUserLists(userData.email);
+          dispatch(setInitialLists(listData));
           redirectTo({ navigate, path: "/" });
         })
         .catch((err) => console.log(err));

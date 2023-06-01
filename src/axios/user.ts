@@ -1,5 +1,8 @@
 import axios from "axios";
 
+import { upsertList } from "./lists";
+import { createStandardLists } from "../assets/standardLists";
+
 const backloggerAPI =
   process.env.NODE_ENV === "production"
     ? process.env.REACT_APP_API_URL
@@ -12,7 +15,13 @@ export const getUser = async (userData: any) => {
       if (res.data) {
         return res.data;
       } else {
-        return await upsertUser(userData);
+        // Create new user and standard lists since new user
+        const newUser = await upsertUser(userData);
+        const standardLists = createStandardLists(userData.email);
+        for (let listData of standardLists) {
+          await upsertList(listData, userData.email);
+        }
+        return newUser;
       }
     });
 };

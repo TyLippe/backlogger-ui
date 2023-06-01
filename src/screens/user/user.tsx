@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { googleLogout } from "@react-oauth/google";
 import { useDispatch, useSelector } from "react-redux";
 
-import { RootState } from "../../app/store";
+import { RootState } from "../../store";
 import { logoutUser, setUser } from "../../redux/user/userSlice";
 
 import "./user.scss";
@@ -12,6 +12,8 @@ import { upsertUser } from "../../axios/user";
 export const UserScreen = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
+  const lists = useSelector((state: RootState) => state.lists);
+
   const [username, setUsername] = useState("");
 
   const logOut = () => {
@@ -32,7 +34,7 @@ export const UserScreen = () => {
 
   return (
     <div className="user-container">
-      <h1>User</h1>
+      <h1>User</h1> <button onClick={logOut}>Log out</button>
       <p>Name: {user.name}</p>
       <p>Email: {user.email}</p>
       <p>Username: {user.username}</p>
@@ -42,7 +44,9 @@ export const UserScreen = () => {
         name={"seach"}
         value={username}
       />
-      <button onClick={logOut}>Log out</button>
+      {lists.map((list) => {
+        return <p>{list.name}</p>;
+      })}
     </div>
   );
 };

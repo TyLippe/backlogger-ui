@@ -13,8 +13,15 @@ export const getUserLists = async (userId: any) => {
     });
 };
 
-export const upsertList = async (listData: any) => {
-  return await axios.put(`${backloggerAPI}/lists`, {}).then(async (res) => {
-    return res.data;
-  });
+export const upsertList = async (listData: any, userId: string) => {
+  return await axios
+    .put(`${backloggerAPI}/lists`, {
+      name: listData.name,
+      games: listData.games,
+      id: listData?.id,
+      userId,
+    })
+    .then(async (res) => {
+      return res.data;
+    });
 };
