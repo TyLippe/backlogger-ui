@@ -20,7 +20,7 @@ export interface ListDTO {
   games: Game;
 }
 
-const initialState: List[] = [];
+const initialState: List = {};
 
 export const listSlice = createSlice({
   name: "list",
@@ -32,11 +32,10 @@ export const listSlice = createSlice({
     addToList: (state, action) => {
       return {
         ...state,
+        // eslint-disable-next-line
         ["Backlog"]: {
-          //@ts-ignore :: TODO: Why is this yelling but working??
           ...state["Backlog"],
           games: {
-            //@ts-ignore :: TODO: Why is this yelling but working??
             ...state["Backlog"].games,
             [action.payload.id]: action.payload,
           },
