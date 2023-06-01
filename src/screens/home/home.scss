@@ -1,16 +1,11 @@
 @import "../../assets/variables.scss";
 
 .home-container {
-  margin: 0 20%;
+  margin: 0 25%;
   height: 75vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  h1 {
-    color: $red;
-  }
-  p {
-    color: $white;
-  }
+  text-align: center;
 }

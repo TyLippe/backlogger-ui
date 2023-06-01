@@ -1,6 +1,7 @@
 @import "../../assets/variables.scss";
 
 .header-container {
+  margin: 0 1%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,12 +16,4 @@
   border-bottom: 1px solid $white;
   width: 100%;
   display: block;
-}
-
-// Mobile
-@media screen and (max-width: $screen-md-min) {
-}
-
-// Desktop
-@media screen and (min-width: $screen-md-min) {
 }

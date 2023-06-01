@@ -18,7 +18,7 @@ export const TextInput = ({
   submitText: string;
 }) => {
   return (
-    <div>
+    <div className="text-input-container">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -26,8 +26,9 @@ export const TextInput = ({
           onChange={handleChange}
           name={name}
           value={value}
+          className="input"
         />
-        <input type="submit" value={submitText} />
+        <input type="submit" value={submitText} className="submit-button" />
       </form>
     </div>
   );
