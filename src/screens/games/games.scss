@@ -2,14 +2,13 @@
 
 .games-container {
   margin: 30px 5%;
-  height: 75vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   .games-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     margin-top: 24px;
   }
 }

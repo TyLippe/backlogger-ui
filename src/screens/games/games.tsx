@@ -1,11 +1,16 @@
 import React, { useState } from "react";
-import { TextInput } from "../../atoms";
+import { useDispatch } from "react-redux";
 
-import "./games.scss";
 import { getGames } from "../../axios/games";
+import { TextInput } from "../../atoms";
 import { GameCard } from "../../organisms";
 
+import "./games.scss";
+import { addToList } from "../../redux/lists/listsSlice";
+
 export const GamesScreen = () => {
+  const dispatch = useDispatch();
+
   const [searchQuery, setSearchQuery] = useState("");
   const [gamesFound, setGamesFound] = useState([]);
 
@@ -20,6 +25,11 @@ export const GamesScreen = () => {
     setGamesFound(data);
   };
 
+  const handleGameClick = (gameData: any) => {
+    // For now let us add to backlog on click
+    dispatch(addToList(gameData));
+  };
+
   return (
     <div className="games-container">
       <TextInput
@@ -32,7 +42,9 @@ export const GamesScreen = () => {
       />
       <div className="games-list">
         {gamesFound.map((game) => {
-          return <GameCard game={game} />;
+          return (
+            <GameCard game={game} handleOnClick={() => handleGameClick(game)} />
+          );
         })}
       </div>
     </div>

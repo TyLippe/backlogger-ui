@@ -10,7 +10,7 @@ export interface GameDTO {
 }
 
 export interface List {
-  [id: string]: ListDTO;
+  [name: string]: ListDTO;
 }
 
 export interface ListDTO {
@@ -30,7 +30,18 @@ export const listSlice = createSlice({
       return action.payload;
     },
     addToList: (state, action) => {
-      // Take listId and update
+      return {
+        ...state,
+        ["Backlog"]: {
+          //@ts-ignore :: TODO: Why is this yelling but working??
+          ...state["Backlog"],
+          games: {
+            //@ts-ignore :: TODO: Why is this yelling but working??
+            ...state["Backlog"].games,
+            [action.payload.id]: action.payload,
+          },
+        },
+      };
     },
   },
 });

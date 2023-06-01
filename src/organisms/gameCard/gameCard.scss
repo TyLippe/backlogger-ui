@@ -11,4 +11,7 @@
   width: 260px;
   height: auto;
   margin: 12px 2px;
+  &:hover {
+    cursor: pointer;
+  }
 }
