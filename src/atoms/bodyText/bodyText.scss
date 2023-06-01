@@ -1,11 +1,7 @@
 @import "../../assets/variables.scss";
 
-.name-text {
+.body-text {
   color: $white;
   font-size: 1.25em;
   margin: 0;
-  &:hover {
-    color: $red;
-    cursor: pointer;
-  }
 }

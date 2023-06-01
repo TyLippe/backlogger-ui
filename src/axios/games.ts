@@ -1,9 +1,6 @@
 import axios from "axios";
 
-const backloggerAPI =
-  process.env.NODE_ENV === "production"
-    ? process.env.REACT_APP_API_URL
-    : "http://localhost:3001";
+import { backloggerAPI } from "../utils/variables";
 
 export const getGames = async (gameTitle: string) => {
   return await axios

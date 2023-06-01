@@ -6,7 +6,7 @@ import { RootState } from "../../store";
 import { logoutUser, setUser } from "../../redux/user/userSlice";
 
 import "./user.scss";
-import { SearchInput } from "../../atoms";
+import { TextInput } from "../../atoms";
 import { upsertUser } from "../../axios/user";
 
 export const UserScreen = () => {
@@ -38,11 +38,13 @@ export const UserScreen = () => {
       <p>Name: {user.name}</p>
       <p>Email: {user.email}</p>
       <p>Username: {user.username}</p>
-      <SearchInput
+      <TextInput
         handleChange={handleUsernameChange}
         handleSubmit={handleSubmit}
         name={"seach"}
         value={username}
+        placeholder="username"
+        submitText="Submit"
       />
       {lists.map((list) => {
         return <p>{list.name}</p>;

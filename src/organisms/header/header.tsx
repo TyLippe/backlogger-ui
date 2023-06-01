@@ -3,22 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import { HeaderText, Tab } from "../../atoms";
 import { redirectTo } from "../../utils/utils";
-import "./header.scss";
+import { tabs } from "../../utils/variables";
 
-export const tabs = [
-  {
-    name: "Home",
-    directTo: "/",
-  },
-  {
-    name: "Games",
-    directTo: "/games",
-  },
-  {
-    name: "User",
-    directTo: "/user",
-  },
-];
+import "./header.scss";
 
 export const Header = () => {
   const navigate = useNavigate();

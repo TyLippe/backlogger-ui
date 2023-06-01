@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { SearchInput } from "../../atoms";
+import { TextInput } from "../../atoms";
 
 import "./games.scss";
 import { getGames } from "../../axios/games";
-import { GameCard } from "../../molecules/gameCard/gameCard";
+import { GameCard } from "../../organisms";
 
 export const GamesScreen = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -22,11 +22,13 @@ export const GamesScreen = () => {
 
   return (
     <div className="games-container">
-      <SearchInput
+      <TextInput
         handleChange={handleSearchQuery}
         handleSubmit={handleSearchSubmit}
         name={"seach"}
         value={searchQuery}
+        placeholder="Search for games..."
+        submitText="Search"
       />
       <div className="games-list">
         {gamesFound.map((game) => {

@@ -2,11 +2,7 @@ import axios from "axios";
 
 import { upsertList } from "./lists";
 import { createStandardLists } from "../assets/standardLists";
-
-const backloggerAPI =
-  process.env.NODE_ENV === "production"
-    ? process.env.REACT_APP_API_URL
-    : "http://localhost:3001";
+import { backloggerAPI } from "../utils/variables";
 
 export const getUser = async (userData: any) => {
   return await axios
